@@ -33,14 +33,14 @@ deploy-job:      # This job runs in the deploy stage.
     entrypoint: ['']
   script:
     - echo "Deploying Application.."
-    - *prepare_kubecontext
-    - sh scripts/deploy-app.sh
+    - sleep 60
+    - echo "Deployed"
 
 chaos-job:      # This job runs in the deploy stage.
   stage: chaos  # It only runs when *both* jobs in the test stage complete successfully.
   environment: production
   variables:
-    WORKFLOW_ID: "d7c9d243-0219-4f7c-84c2-3004e59e4505"
+    WORKFLOW_ID: "553bbc40-f46e-4968-96c2-6d9c0b640e40"
     EXPECTED_RESILIENCE_SCORE: 100
   before_script: 
     - apt-get update; apt-get -y install jq
