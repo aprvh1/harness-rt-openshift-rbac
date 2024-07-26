@@ -8,4 +8,4 @@ curl -sL https://storage.googleapis.com/hce-api/hce-api-linux-amd64 -o hce-api-s
 ls -lh hce-api-saas
 chmod +x hce-api-saas
 
-./hce-api-saas generate --api launch-experiment --account-id=${ACCOUNT_ID} --project-id ${PROJECT_ID} --workflow-id ${WORKFLOW_ID} --api-key ${API_KEY} --file-name hce-api.sh )
+./hce-api-saas generate --api launch-experiment --account-id=${ACCOUNT_ID} --project-id ${PROJECT_ID} --workflow-id ${WORKFLOW_ID} --api-key ${API_KEY} --file-name hce-api.sh

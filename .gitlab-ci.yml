@@ -63,8 +63,7 @@ rollback-job:
     name: bitnami/kubectl:latest
     entrypoint: ['']
   script: 
-    - *prepare_kubecontext
-    - echo "Attempting Rollback.."; sh scripts/rollback-deploy.sh 
+    - echo "Attempting Rollback..";
   needs: ["chaos-job"]
   when: on_failure
   
