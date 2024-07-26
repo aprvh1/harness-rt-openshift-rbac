@@ -44,6 +44,8 @@ chaos-job:      # This job runs in the deploy stage.
     entrypoint: ['']
   variables:
     WORKFLOW_ID: "553bbc40-f46e-4968-96c2-6d9c0b640e40"
+    ACCOUNT_ID: "Pt_YA3aYQT6g6ZW7MZOMJw"
+    PROJECT_ID: "InfiniteBlue"
     EXPECTED_RESILIENCE_SCORE: 100
   before_script: 
     - apt-get update; apt-get -y install jq; apt-get -y install curl;
