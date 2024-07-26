@@ -9,8 +9,12 @@ curl  https://app.harness.io/public/shared/tools/chaos/hce-cli/0.0.4/hce-cli-0.0
 ls -lh hce-api-saas
 chmod +x hce-api-saas
 
-output=$(./hce-api-saas generate --api launch-experiment --account-id=${ACCOUNT_ID} \
---project-id ${PROJECT_ID} --workflow-id ${WORKFLOW_ID} \
---api-key ${API_KEY} --file-name hce-api.sh | jq -r '.data.runChaosExperiment.notifyID')
+# output=$(./hce-api-saas generate --api launch-experiment --account-id=${ACCOUNT_ID} \
+# --project-id ${PROJECT_ID} --workflow-id ${WORKFLOW_ID} \
+# --api-key ${API_KEY} --file-name hce-api.sh | jq -r '.data.runChaosExperiment.notifyID')
 
-echo ${output}
+./hce-api-saas generate --api launch-experiment --account-id=${ACCOUNT_ID} --project-id ${PROJECT_ID} --workflow-id ${WORKFLOW_ID} --api-key ${API_KEY} --file-name hce-api.sh
+
+cat hce-api.sh
+
+# echo ${output}
