@@ -10,4 +10,4 @@ chmod +x hce-api-saas
 
 ./hce-api-saas generate --api monitor-experiment --account-id=${ACCOUNT_ID} \
 --project-id ${PROJECT_ID} \
---api-key ${API_KEY} --file-name hce-api.sh --timeout="3600"
+--api-key ${API_KEY} --file-name hce-api.sh --timeout="300"
