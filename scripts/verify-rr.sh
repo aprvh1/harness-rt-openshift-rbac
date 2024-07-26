@@ -9,7 +9,7 @@ curl  https://app.harness.io/public/shared/tools/chaos/hce-cli/0.0.4/hce-cli-0.0
 chmod +x hce-api-saas
 
 resiliencyScore=$(./hce-api-saas generate --api validate-resilience-score  --account-id=${ACCOUNT_ID} \
---project-id ${PROJECT_ID} --notifyID=$1  \
+--project-id ${PROJECT_ID} --notify-id=$1  \
 --api-key ${API_KEY} --file-name hce-api.sh)
 
 echo "${resiliencyScore}"
