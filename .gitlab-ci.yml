@@ -40,7 +40,7 @@ chaos-job:      # This job runs in the deploy stage.
   stage: chaos  # It only runs when *both* jobs in the test stage complete successfully.
   environment: production
   image: 
-    name: bitnami/kubectl:latest
+    name: ubuntu
     entrypoint: ['']
   variables:
     WORKFLOW_ID: "553bbc40-f46e-4968-96c2-6d9c0b640e40"
