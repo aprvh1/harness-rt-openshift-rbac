@@ -9,5 +9,5 @@ curl  https://app.harness.io/public/shared/tools/chaos/hce-cli/0.0.4/hce-cli-0.0
 chmod +x hce-api-saas
 
 ./hce-api-saas generate --api monitor-experiment --account-id=${ACCOUNT_ID} \
---project-id ${PROJECT_ID} --notifyID=$1  \
+--project-id ${PROJECT_ID} \
 --api-key ${API_KEY} --file-name hce-api.sh --timeout="500"
