@@ -46,7 +46,7 @@ chaos-job:      # This job runs in the deploy stage.
     WORKFLOW_ID: "553bbc40-f46e-4968-96c2-6d9c0b640e40"
     EXPECTED_RESILIENCE_SCORE: 100
   before_script: 
-    - apt-get update; apt-get -y install jq
+    - apt-get update; apt-get -y install jq; apt-get -y install curl;
   script:
     - echo "Launching Chaos Experiment.."; EXPERIMENT_NOTIFY_ID=$(sh scripts/launch-chaos.sh)
     - echo "Monitoring Chaos Experiment.."; sh scripts/monitor-chaos.sh ${EXPERIMENT_NOTIFY_ID}
