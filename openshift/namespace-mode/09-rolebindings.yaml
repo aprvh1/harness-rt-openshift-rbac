@@ -1,0 +1,126 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-pod-basic-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-pod-basic
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-pod-basic-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-pod-exec-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-pod-exec
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-pod-exec-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-stress-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-stress
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-stress-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-network-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-network
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-network-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-network-policy-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-network-policy
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-network-policy-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hce-admin-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-admin
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-admin-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argo-chaos-rolebinding
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-rolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: argo-chaos
+  namespace: hce
+roleRef:
+  kind: Role
+  name: hce-admin-role
+  apiGroup: rbac.authorization.k8s.io

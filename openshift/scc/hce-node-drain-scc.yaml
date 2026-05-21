@@ -1,0 +1,42 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: hce-node-drain-scc
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: scc
+    app.kubernetes.io/part-of: harness-chaos-engineering
+  annotations:
+    kubernetes.io/description: "SCC for node drain and taint operations (node-drain, node-taint, kubelet-service-kill)"
+allowPrivilegedContainer: true
+allowPrivilegeEscalation: true
+allowHostDirVolumePlugin: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: false
+allowHostIPC: false
+allowedCapabilities:
+- SYS_ADMIN
+- NET_ADMIN
+defaultAddCapabilities: []
+requiredDropCapabilities: []
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- hostPath
+- persistentVolumeClaim
+- projected
+- secret
+readOnlyRootFilesystem: false
+users: []
+groups: []
+priority: null

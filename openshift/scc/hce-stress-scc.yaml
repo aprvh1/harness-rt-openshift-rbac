@@ -1,0 +1,41 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: hce-stress-scc
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: scc
+    app.kubernetes.io/part-of: harness-chaos-engineering
+  annotations:
+    kubernetes.io/description: "SCC for CPU/memory stress faults requiring cgroup manipulation (pod-cpu-hog, pod-memory-hog, node-cpu-hog, node-memory-hog, pod-io-stress, node-io-stress)"
+allowPrivilegedContainer: true
+allowPrivilegeEscalation: true
+allowHostDirVolumePlugin: true
+allowHostNetwork: false
+allowHostPID: true
+allowHostPorts: false
+allowHostIPC: false
+allowedCapabilities:
+- SYS_ADMIN
+defaultAddCapabilities: []
+requiredDropCapabilities: []
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- hostPath
+- persistentVolumeClaim
+- projected
+- secret
+readOnlyRootFilesystem: false
+users: []
+groups: []
+priority: null

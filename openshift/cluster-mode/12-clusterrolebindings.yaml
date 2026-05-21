@@ -1,0 +1,170 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-pod-basic-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-pod-basic
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-pod-basic-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-pod-exec-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-pod-exec
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-pod-exec-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-stress-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-stress
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-stress-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-network-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-network
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-network-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-network-policy-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-network-policy
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-network-policy-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-node-admin-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-node-admin
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-node-admin-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-node-restart-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-node-restart
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-node-restart-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-kubelet-density-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-kubelet-density
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-kubelet-density-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hce-admin-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: hce-admin
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-admin-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argo-chaos-clusterrolebinding
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrolebinding
+    app.kubernetes.io/part-of: harness-chaos-engineering
+subjects:
+- kind: ServiceAccount
+  name: argo-chaos
+  namespace: hce
+roleRef:
+  kind: ClusterRole
+  name: hce-admin-clusterrole
+  apiGroup: rbac.authorization.k8s.io

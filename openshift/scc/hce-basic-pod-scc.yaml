@@ -1,0 +1,40 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: hce-basic-pod-scc
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: scc
+    app.kubernetes.io/part-of: harness-chaos-engineering
+  annotations:
+    kubernetes.io/description: "SCC for basic pod lifecycle chaos faults (pod-delete, pod-failure, container-kill)"
+allowPrivilegedContainer: false
+allowPrivilegeEscalation: false
+allowHostDirVolumePlugin: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowHostIPC: false
+allowedCapabilities: []
+defaultAddCapabilities: []
+requiredDropCapabilities:
+- ALL
+runAsUser:
+  type: MustRunAsNonRoot
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: MustRunAs
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret
+readOnlyRootFilesystem: false
+users: []
+groups: []
+priority: null

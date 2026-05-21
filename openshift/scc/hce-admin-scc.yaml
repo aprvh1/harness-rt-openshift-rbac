@@ -1,0 +1,40 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: hce-admin-scc
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: scc
+    app.kubernetes.io/part-of: harness-chaos-engineering
+  annotations:
+    kubernetes.io/description: "SCC for chaos infrastructure components and orchestration (HCE subscriber, workflow controller, chaos-runner)"
+allowPrivilegedContainer: false
+allowPrivilegeEscalation: true
+allowHostDirVolumePlugin: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowHostIPC: false
+allowedCapabilities: []
+defaultAddCapabilities: []
+requiredDropCapabilities:
+- ALL
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret
+readOnlyRootFilesystem: false
+users: []
+groups: []
+priority: null

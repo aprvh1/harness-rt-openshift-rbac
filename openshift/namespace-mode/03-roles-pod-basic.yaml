@@ -1,0 +1,19 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: hce-pod-basic-role
+  namespace: hce
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-role
+    app.kubernetes.io/part-of: harness-chaos-engineering
+rules:
+- apiGroups: [""]
+  resources: [pods, events, pods/log]
+  verbs: [create, delete, get, list, patch, update, deletecollection]
+- apiGroups: [apps]
+  resources: [deployments, statefulsets, replicasets, daemonsets]
+  verbs: [get, list]
+- apiGroups: [batch]
+  resources: [jobs]
+  verbs: [create, delete, get, list, deletecollection]

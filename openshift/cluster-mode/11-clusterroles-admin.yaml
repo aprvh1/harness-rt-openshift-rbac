@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hce-admin-clusterrole
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-admin-clusterrole
+    app.kubernetes.io/part-of: harness-chaos-engineering
+rules:
+- apiGroups: [""]
+  resources: [pods, pods/log, pods/exec, configmaps, secrets, services, events, serviceaccounts, namespaces]
+  verbs: [create, delete, get, list, patch, update, watch]
+- apiGroups: [apps]
+  resources: [deployments, statefulsets, replicasets, daemonsets]
+  verbs: [create, delete, get, list, patch, update]
+- apiGroups: [batch]
+  resources: [jobs]
+  verbs: [create, delete, get, list, patch, update, watch]
+- apiGroups: [rbac.authorization.k8s.io]
+  resources: [roles, rolebindings, clusterroles, clusterrolebindings]
+  verbs: [create, delete, get, list, patch, update]

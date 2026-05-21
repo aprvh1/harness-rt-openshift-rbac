@@ -1,0 +1,21 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hce-network-policy-clusterrole
+  labels:
+    app.kubernetes.io/name: hce
+    app.kubernetes.io/component: chaos-clusterrole
+    app.kubernetes.io/part-of: harness-chaos-engineering
+rules:
+- apiGroups: [""]
+  resources: [pods, events, pods/log]
+  verbs: [create, delete, get, list, patch, update, deletecollection]
+- apiGroups: [networking.k8s.io]
+  resources: [networkpolicies]
+  verbs: [create, delete, get, list]
+- apiGroups: [apps]
+  resources: [deployments, statefulsets, replicasets, daemonsets]
+  verbs: [get, list]
+- apiGroups: [batch]
+  resources: [jobs]
+  verbs: [create, delete, get, list, deletecollection]
