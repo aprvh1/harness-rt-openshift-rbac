@@ -66,6 +66,8 @@ Harness Service Discovery is a platform feature that discovers workloads and ser
 
 ## Scenario 1 — ClusterRoleBinding + ClusterRole
 
+![Scenario 1: ClusterRoleBinding + ClusterRole](images/scenario1-clusterrolebinding-clusterrole.png)
+
 ### When to Use
 
 - You need **full chaos coverage** including node-level faults (node-drain, node-taint, node-restart, etc.)
@@ -221,6 +223,8 @@ subjects:
 ---
 
 ## Scenario 2 — RoleBinding + ClusterRole
+
+![Scenario 2: RoleBinding + ClusterRole](images/scenario2-rolebinding-clusterrole.png)
 
 ### When to Use
 
@@ -398,6 +402,8 @@ All **pod-level and namespace-scoped** faults:
 ---
 
 ## Scenario 3 — RoleBinding + Role
+
+![Scenario 3: RoleBinding + Role](images/scenario3-rolebinding-role.png)
 
 ### When to Use
 
@@ -621,6 +627,10 @@ Without node access, the Discovery Agent cannot correlate network traffic across
 Security Context Constraints (SCC) determine what security privileges chaos helper pods and discovery agent pods can use on OpenShift clusters. For non-OpenShift clusters, the equivalent is Pod Security Standards (PSS). This section maps each fault and discovery feature to its required SCC profile, and provides ready-to-use SCC YAML definitions.
 
 **Reference:** [OpenShift SCC for Chaos Engineering — Harness Developer Hub](https://developer.harness.io/docs/chaos-engineering/security/security-templates/openshift-scc)
+
+### SCC Tiers — Visual Overview
+
+![SCC Tiers for Chaos Engineering](images/scc-tiers-chaos-engineering.png)
 
 ### SCC Profiles Overview
 
